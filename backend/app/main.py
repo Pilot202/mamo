@@ -83,14 +83,14 @@ async def chat(request: ChatRequest):
     response = gemini_service.chat(request.message)
     return {"response": response}
 
-if __name__ == "__main__":
-    import uvicorn
-    import sys
-    import os
+# if __name__ == "__main__":
+#     import uvicorn
+#     import sys
+#     import os
     
-    # Add the backend directory to sys.path to allow "app" imports
-    # This file is in backend/app/main.py. We want backend/ to be in path.
-    backend_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    sys.path.append(backend_path)
+#     # Add the backend directory to sys.path to allow "app" imports
+#     # This file is in backend/app/main.py. We want backend/ to be in path.
+#     backend_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#     sys.path.append(backend_path)
 
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+#     uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

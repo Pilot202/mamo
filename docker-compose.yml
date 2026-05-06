@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: ./backend
+    container_name: mamo-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/app:/app/app
+      - ./backend/model_assets:/app/model_assets # Optional for hot reload if needed, mainly for persistence
+    env_file:
+      - ./backend/app/.env
+    restart: always

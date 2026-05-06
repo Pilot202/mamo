@@ -51,3 +51,16 @@ npm run dev
 - **Results**: View prediction class (Normal, Benign, Malignant), confidence, and class probabilities.
 - **Reporting**: Download PDF reports of the analysis.
 - **Chatbot**: Ask questions to the AI Breast Health Assistant (powered by Gemini).
+
+## Docker Support
+
+You can run the entire application using Docker Compose.
+
+```bash
+docker compose up --build
+```
+
+This will start:
+- Backend on `http://localhost:8000`
+- Frontend on `http://localhost:3000`
+

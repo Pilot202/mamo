@@ -6,3 +6,5 @@ python-multipart
 google-generativeai
 sqlalchemy
 numpy
+python-dotenv
+opencv-python

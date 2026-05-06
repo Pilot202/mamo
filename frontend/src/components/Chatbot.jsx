@@ -31,7 +31,7 @@ const Chatbot = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post('http://localhost:8000/chat', {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/chat`, {
                 message: input,
                 api_key: apiKey // Passing key if set
             });

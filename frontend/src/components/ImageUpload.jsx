@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Upload, X, FileImage, AlertCircle } from 'lucide-react';
-import axios from 'axios';
+import { predictImages } from '../services/apiClient';
 
 const ImageUpload = ({ onPredictionComplete }) => {
     const [files, setFiles] = useState([]);
@@ -41,23 +41,13 @@ const ImageUpload = ({ onPredictionComplete }) => {
         setIsUploading(true);
         setError(null);
 
-        const formData = new FormData();
-        files.forEach(file => {
-            formData.append('files', file);
-        });
-
         try {
-            // Assuming backend is processed via proxy or direct URL
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/predict`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            onPredictionComplete(response.data.results);
+            const result = await predictImages(files);
+            onPredictionComplete(result.results);
             setFiles([]); // Clear queue on success
         } catch (err) {
             console.error(err);
-            setError("Failed to process images. Please try again.");
+            setError(err.message || "Failed to process images. Please try again.");
         } finally {
             setIsUploading(false);
         }

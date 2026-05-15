@@ -14,14 +14,19 @@ app = FastAPI(title="Breast Cancer Prediction API", description="API for Mammogr
 
 # CORS Configuration
 origins = [
-    "http://localhost:5173", # Vite default
-    "http://localhost:3000",
-    "https://mamo-frontend.onrender.com"
+    "http://localhost:5173",      # Vite dev server
+    "http://localhost:3000",       # Local testing
+    "http://127.0.0.1:5173",      # Vite alternative
+    "http://127.0.0.1:3000",      # Alternative localhost
+    "https://mamo-frontend.onrender.com",  # Render deployment
+    "https://mamo-frontend.web.app",  # Firebase Hosting
+    "https://mamo-frontend.firebaseapp.com",  # Firebase Alternative
+    # Add your actual Firebase project hosting URL here
 ]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Allow all for development
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Bot } from 'lucide-react';
-import axios from 'axios';
+import { sendChatMessage } from '../services/apiClient';
 
 const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,12 +31,8 @@ const Chatbot = () => {
         setIsLoading(true);
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/chat`, {
-                message: input,
-                api_key: apiKey // Passing key if set
-            });
-
-            setMessages(prev => [...prev, { role: 'assistant', text: response.data.response }]);
+            const response = await sendChatMessage(input, apiKey);
+            setMessages(prev => [...prev, { role: 'assistant', text: response }]);
         } catch (error) {
             console.error("Chat error", error);
             setMessages(prev => [...prev, { role: 'assistant', text: "I'm having trouble connecting right now. Please check your connection or API key." }]);

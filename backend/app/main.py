@@ -16,12 +16,7 @@ app = FastAPI(title="Breast Cancer Prediction API", description="API for Mammogr
 origins = [
     "http://localhost:5173",      # Vite dev server
     "http://localhost:3000",       # Local testing
-    "http://127.0.0.1:5173",      # Vite alternative
-    "http://127.0.0.1:3000",      # Alternative localhost
-    "https://mamo-frontend.onrender.com",  # Render deployment
-    "https://mamo-frontend.web.app",  # Firebase Hosting
-    "https://mamo-frontend.firebaseapp.com",  # Firebase Alternative
-    # Add your actual Firebase project hosting URL here
+   "https://mamo-classifier.web.app " # Firebase 
 ]
 
 app.add_middleware(
@@ -54,11 +49,13 @@ async def serve_react_app():
     return {"message": "Breast Cancer Prediction API is running (Frontend not found)"}
 
 # Catch-all for React Router (SPA)
-@app.exception_handler(404)
+from starlette.exceptions import HTTPException
+
+@app.exception_handler(HTTPException)
 async def custom_404_handler(request, exc):
-    if static_dir.exists():
+    if exc.status_code == 404 and static_dir.exists():
         return FileResponse(static_dir / "index.html")
-    return {"detail": "Not Found"}
+    return {"detail": exc.detail, "status_code": exc.status_code}
 
 @app.post("/predict")
 async def predict(files: List[UploadFile] = File(...)):

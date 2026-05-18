@@ -1,10 +1,10 @@
 fastapi
 uvicorn
-tensorflow
+tensorflow-cpu
 pillow
 python-multipart
-google-generativeai
+google-genai
 sqlalchemy
 numpy
 python-dotenv
-opencv-python
+opencv-python-headless

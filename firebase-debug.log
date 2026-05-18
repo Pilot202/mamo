@@ -1,0 +1,55 @@
+[debug] [2026-05-15T11:14:56.618Z] ----------------------------------------------------------------------
+[debug] [2026-05-15T11:14:56.620Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2026-05-15T11:14:56.620Z] CLI Version:   15.17.0
+[debug] [2026-05-15T11:14:56.621Z] Platform:      win32
+[debug] [2026-05-15T11:14:56.621Z] Node Version:  v24.0.2
+[debug] [2026-05-15T11:14:56.621Z] Time:          Fri May 15 2026 12:14:56 GMT+0100 (West Africa Standard Time)
+[debug] [2026-05-15T11:14:56.621Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-15T11:15:05.094Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:309:49)
+    at listOnTimeout (node:internal/timers:608:17)
+    at process.processTimers (node:internal/timers:543:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2026-05-15T11:19:24.668Z] ----------------------------------------------------------------------
+[debug] [2026-05-15T11:19:24.671Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting --debug
+[debug] [2026-05-15T11:19:24.672Z] CLI Version:   15.17.0
+[debug] [2026-05-15T11:19:24.672Z] Platform:      win32
+[debug] [2026-05-15T11:19:24.672Z] Node Version:  v24.0.2
+[debug] [2026-05-15T11:19:24.672Z] Time:          Fri May 15 2026 12:19:24 GMT+0100 (West Africa Standard Time)
+[debug] [2026-05-15T11:19:24.672Z] ----------------------------------------------------------------------
+[debug] 
+[error] 
+[error] Error: Not in a Firebase app directory (could not locate firebase.json)
+[debug] [2026-05-15T11:20:10.418Z] ----------------------------------------------------------------------
+[debug] [2026-05-15T11:20:10.421Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only hosting
+[debug] [2026-05-15T11:20:10.421Z] CLI Version:   15.17.0
+[debug] [2026-05-15T11:20:10.422Z] Platform:      win32
+[debug] [2026-05-15T11:20:10.422Z] Node Version:  v24.0.2
+[debug] [2026-05-15T11:20:10.422Z] Time:          Fri May 15 2026 12:20:10 GMT+0100 (West Africa Standard Time)
+[debug] [2026-05-15T11:20:10.422Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-05-15T11:20:13.195Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-05-15T11:20:13.195Z] > authorizing via signed-in user (aliabiodun24@gmail.com)
+[debug] [2026-05-15T11:20:13.196Z] [iam] checking project mamo-frontend for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-05-15T11:20:13.197Z] Checked if tokens are valid: true, expires at: 1778847371432
+[debug] [2026-05-15T11:20:13.197Z] Checked if tokens are valid: true, expires at: 1778847371432
+[debug] [2026-05-15T11:20:13.198Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/mamo-frontend:testIamPermissions [none]
+[debug] [2026-05-15T11:20:13.198Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/mamo-frontend:testIamPermissions  x-goog-user-project=mamo-frontend
+[debug] [2026-05-15T11:20:13.198Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mamo-frontend:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-05-15T11:20:14.372Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/mamo-frontend:testIamPermissions 400
+[debug] [2026-05-15T11:20:14.372Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/mamo-frontend:testIamPermissions {"error":{"code":400,"message":"Project 'projects/mamo-frontend' not found or deleted.","status":"INVALID_ARGUMENT","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"consumer":"projects/mamo-frontend","service":"cloudresourcemanager.googleapis.com","containerInfo":"projects/mamo-frontend"}}]}}
+[debug] [2026-05-15T11:20:14.373Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/mamo-frontend:testIamPermissions had HTTP Error: 400, Project 'projects/mamo-frontend' not found or deleted.
+[debug] [2026-05-15T11:20:14.373Z] Checked if tokens are valid: true, expires at: 1778847371432
+[debug] [2026-05-15T11:20:14.374Z] Checked if tokens are valid: true, expires at: 1778847371432
+[debug] [2026-05-15T11:20:14.374Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/mamo-frontend [none]
+[debug] [2026-05-15T11:20:15.355Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/mamo-frontend 403
+[debug] [2026-05-15T11:20:15.355Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/mamo-frontend {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-05-15T11:20:15.356Z] Request to https://firebase.googleapis.com/v1beta1/projects/mamo-frontend had HTTP Error: 403, The caller does not have permission
+[debug] [2026-05-15T11:20:15.889Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/mamo-frontend had HTTP Error: 403, The caller does not have permission
+    at responseToError (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\responseToError.js:53:12)
+    at RetryOperation._fn (C:\Users\USER\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:333:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project mamo-frontend. Please make sure the project exists and your account has permission to access it.

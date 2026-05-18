@@ -1,4 +1,4 @@
-import google.generativeai as genai
+import google.genai as genai
 import os
 from dotenv import load_dotenv
 load_dotenv()
@@ -39,16 +39,15 @@ class GeminiService:
     def configure(self, api_key: str):
         genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel(
-            model_name="gemini-2.5-flash",
-            system_instruction=self.system_prompt
+            model_name="gemini-1.5-flash",
+            system_prompt=self.system_prompt
         )
-        self.chat_session = self.model.start_chat(history=[])
 
     def chat(self, message: str):
-        if not self.chat_session:
+        if not self.model:
              return "Chat service not configured. Please check API key."
         
-        response = self.chat_session.send_message(message)
+        response = self.model.generate_content(message)
         return response.text
 
 gemini_service = GeminiService()
